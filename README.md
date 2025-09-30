@@ -2,6 +2,9 @@
 
 This repository contains a comprehensive collection of CUDA programming examples and exercises, organized into progressive learning modules. The examples cover fundamental CUDA concepts from basic memory management to advanced optimization techniques.
 
+## 🏆 Certification Achievement
+This training material has been successfully used to achieve **NVIDIA CUDA Certification**, demonstrating its effectiveness for comprehensive CUDA learning and skill development.
+
 ## 📚 Repository Structure
 
 ### 📁 cuda00 - Fundamentals
@@ -50,6 +53,17 @@ Advanced CUDA programming concepts and optimization strategies.
 - **`02-saxpy.cu`** - SAXPY (Single-precision A*X Plus Y) implementation
 - **`02-saxpy-solution.cu`** - Optimized SAXPY with performance tuning
 
+### 📁 cuda02 - Complex Simulations
+High-performance computing applications and advanced algorithmic implementations.
+
+#### 🌌 N-Body Simulation
+- **`01-nbody.cu`** - Gravitational N-body simulation with particle interactions
+  - Demonstrates advanced grid-stride patterns with 2D thread organization
+  - Implements gravitational force calculations between particle systems
+  - Features performance optimization for billions of interactions per second
+  - Includes file I/O for initialization and validation
+  - Uses timing utilities for performance measurement
+
 ## 🎯 Learning Objectives
 
 ### Beginner Level (cuda00)
@@ -65,6 +79,13 @@ Advanced CUDA programming concepts and optimization strategies.
 - **Device Queries**: Programmatically access GPU specifications
 - **Unified Memory**: Understand page fault behavior and optimization
 - **Performance Tuning**: Achieve specific performance targets
+
+### Expert Level (cuda02)
+- **Complex Simulations**: Implement sophisticated physics simulations
+- **Multi-Kernel Coordination**: Coordinate multiple kernel launches with proper synchronization
+- **Performance Analysis**: Measure and optimize billions of operations per second
+- **2D Thread Organization**: Advanced thread block and grid configurations
+- **File I/O Integration**: Handle external data input/output for validation
 
 ## 🛠️ Building and Running
 
@@ -100,6 +121,12 @@ nvcc -o vector_add 01-vector-add.cu
 cd cuda01/saxpy
 nvcc -o saxpy 02-saxpy.cu
 nsys profile --stats=true ./saxpy
+
+# N-body simulation (cuda02)
+cd cuda02
+nvcc -o nbody 01-nbody.cu
+./nbody  # Default: 4096 bodies
+./nbody 15  # 65536 bodies for performance testing
 ```
 
 ## 📊 Performance Profiling
@@ -125,6 +152,12 @@ nsys-ui profile_report.nsys-rep
 - **Grid-Stride Loops**: Scalable kernel design for variable data sizes
 - **2D Thread Organization**: Efficient mapping for matrix operations
 - **Occupancy Optimization**: Maximizing GPU utilization
+- **Multi-Kernel Synchronization**: Coordinating dependent kernel launches
+
+### Scientific Computing
+- **N-Body Simulations**: Gravitational particle system modeling
+- **Numerical Integration**: Time-stepping algorithms for physics simulations
+- **Performance Benchmarking**: Measuring computational throughput (GFLOPS/s)
 
 ### Error Handling
 - **Runtime Error Checking**: `cudaGetLastError()` and `cudaDeviceSynchronize()`
@@ -140,6 +173,7 @@ nsys-ui profile_report.nsys-rep
 5. **Advance to `cuda01/01-vector-add/`** - Learn optimization techniques
 6. **Profile with `cuda01/saxpy/`** - Practice performance tuning
 7. **Experiment with `cuda01/06-unified-memory-page-faults/`** - Master memory optimization
+8. **Challenge yourself with `cuda02/01-nbody.cu`** - Implement complex simulations
 
 ## 🔧 Common Compilation Issues
 
@@ -169,6 +203,10 @@ When adding new examples:
 2. Provide error checking
 3. Add performance notes where applicable
 4. Consider both educational value and practical application
+
+## 🎓 Success Story
+
+This repository represents a complete learning journey that successfully led to **NVIDIA CUDA Certification**. The progressive structure and hands-on examples provide an effective pathway for mastering GPU programming concepts and achieving professional certification.
 
 ## 📚 Additional Resources
 
